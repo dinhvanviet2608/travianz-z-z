@@ -10,7 +10,8 @@
 \** --------------------------------------------------- **/
 
 class Message {
-
+	public const WORD_CENSOR = true;
+	public const CENSORED = "you,are,you";  
 	public $unread, $nunread = false;
 	public $note;
 	public $inbox, $inbox1, $sent, $sent1, $reading, $reply, $archived, $archived1, $noticearray, $readingNotice = [];
@@ -407,7 +408,7 @@ class Message {
 		$userally = $database->getUserField($session->uid,"alliance",0);
 		$permission=mysqli_fetch_array(mysqli_query($database->dblink,"SELECT opt7 FROM ".TB_PREFIX."ali_permission WHERE uid='".$session->uid."'"));
 
-		if(WORD_CENSOR) {
+		if(Message::WORD_CENSOR) {
             $topic = $this->wordCensor($topic);
             $text = $this->wordCensor($text);
 		}
@@ -496,7 +497,7 @@ class Message {
 		}
 
 		// Vulnerability closed by Shadow
-		if(WORD_CENSOR) {
+		if(Message::WORD_CENSOR) {
 			$topic = $this->wordCensor($topic);
 			$text = $this->wordCensor($text);
 		}
@@ -591,7 +592,7 @@ class Message {
 	}
 
 	private function wordCensor($text) {
-		$censorarray = explode(",", CENSORED);
+		$censorarray = explode(",", Message::CENSORED);
 		foreach($censorarray as $key => $value) {
 			$censorarray[$key] = "/" . $value . "/i";
 		}
