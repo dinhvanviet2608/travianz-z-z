@@ -1,5 +1,5 @@
 <?php
-
+include_once("config.php");
 /** --------------------------------------------------- **\
 | ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
 +---------------------------------------------------------+
@@ -10,8 +10,6 @@
 \** --------------------------------------------------- **/
 
 class Message {
-	public const WORD_CENSOR = true;
-	public const CENSORED = "you,are,you";  
 	public $unread, $nunread = false;
 	public $note;
 	public $inbox, $inbox1, $sent, $sent1, $reading, $reply, $archived, $archived1, $noticearray, $readingNotice = [];
@@ -408,7 +406,7 @@ class Message {
 		$userally = $database->getUserField($session->uid,"alliance",0);
 		$permission=mysqli_fetch_array(mysqli_query($database->dblink,"SELECT opt7 FROM ".TB_PREFIX."ali_permission WHERE uid='".$session->uid."'"));
 
-		if(Message::WORD_CENSOR) {
+		if(WORD_CENSOR) {
             $topic = $this->wordCensor($topic);
             $text = $this->wordCensor($text);
 		}
@@ -497,7 +495,7 @@ class Message {
 		}
 
 		// Vulnerability closed by Shadow
-		if(Message::WORD_CENSOR) {
+		if(WORD_CENSOR) {
 			$topic = $this->wordCensor($topic);
 			$text = $this->wordCensor($text);
 		}
@@ -592,7 +590,7 @@ class Message {
 	}
 
 	private function wordCensor($text) {
-		$censorarray = explode(",", Message::CENSORED);
+		$censorarray = explode(",", CENSORED);
 		foreach($censorarray as $key => $value) {
 			$censorarray[$key] = "/" . $value . "/i";
 		}

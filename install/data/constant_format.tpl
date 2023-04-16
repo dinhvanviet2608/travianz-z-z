@@ -263,11 +263,11 @@ define("DB_TYPE", %CONNECTT%);
 ////////////////////////////////////
 
 // ***** Censore words
-//define("WORD_CENSOR", "%ACTCEN%");
+define("WORD_CENSOR", "%ACTCEN%");
 
 // ***** Words (censore)
 // Choose which words do you want to be censored
-//define("CENSORED","%CENWORDS%");
+define("CENSORED","%CENWORDS%");
 
 
 // ***** Limit Mailbox

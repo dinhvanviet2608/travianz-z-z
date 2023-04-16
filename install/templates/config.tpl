@@ -743,6 +743,21 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
             </td>
         </tr>
         <tr>
+            <td><span class="f9 c6">Word Censor:</span></td>
+            <td>
+                <select name="actcen">
+                    <option value="true">Yes</option>
+                    <option value="false" selected="selected">No</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="f9 c6">Word Censor List:</span></td>
+            <td><input name="cenwords" type="text" id="cenwords" value=""></td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
             <td><span class="f9 c6">T4 is Coming screen:</span></td>
             <td>
                 <select name="t4_coming">
