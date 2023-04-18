@@ -14,6 +14,7 @@ include_once("Building.php");
 include_once("Market.php");
 include_once("GameEngine/Units.php");
 include_once("Technology.php");
+include_once("config.php");
 
 class Village {
 

@@ -15,7 +15,7 @@
 ##  Source code:   https://github.com/Shadowss/TravianZ		               ##
 ##                                                                             ##
 #################################################################################
-
+include_once("config.php");
 // make sure we only run the automation script once and wait until it's done,
 // so concurrent AJAX calls from many different users won't overload the server
 if ( !defined('AUTOMATION_MANUAL_RUN') ) {
