@@ -3851,7 +3851,7 @@ class MYSQLi_DB implements IDbConnection {
                     f99t IN ($fieldType))
                 LIMIT 1
         ");
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC) ?? [];
 
         self::$fieldLevelsInVillageSearchCache[$vid.$fieldType] = $row['level'];
         return self::$fieldLevelsInVillageSearchCache[$vid.$fieldType];
